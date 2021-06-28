@@ -1,0 +1,34 @@
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; /* rem is relative to default browser,font size that is 16 we change it to  10px   1rem = 10px  It's better to use rem isted of em becouse em's are not only dependet on root font size but also on parent font size
+                     But even better practise is to use procentages 100% = 16px default font size. If weeee want font size of 10px =>  10/16 = 0.625 => 62.5%  and that it.*/
+
+  @include respond(tab-land) {
+    // width < 900?
+    font-size: 56.25%; // 1rem = 9px, 9/16 =56.25%
+  }
+
+  @include respond(tab-port) {
+    // width< 600?
+    font-size: 50%; // 1rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; // 1rem = 12px , 12/16 = 75%
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+  @include respond(tab-land) {
+    padding: 0;
+  }
+}
